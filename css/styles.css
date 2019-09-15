@@ -1,0 +1,90 @@
+/* Relativos al MODAL Bootstrap */
+.modal-backdrop {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1041;
+	width: 0;
+	height: 100vh;
+	background-color: #000;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+.container {
+    display: block;
+    margin-right: 1%;
+    margin-left: 1%; 
+}
+
+.card {
+    float: left;
+    padding: 0;
+}
+
+.card-header {
+    cursor: pointer;
+    user-select: none;
+}
+
+.card-body {
+    padding-right: 0.25rem;
+    padding-left: 0.25rem;
+}
+
+.card-text {
+    padding: .7em 2em 1em;
+    height: 120px;
+}
+
+.pepr_opciones {
+	text-align: center;
+}
+
+.papelera {
+    float: left;
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.papelera img{
+    width: 150px;
+    height: 150px;
+}
+
+#png_agregar {
+    cursor: pointer;
+}
+
+/* 
+** Reglas dirigidas a la correcta visualización
+** del plugin en cualquier tamaño de pantalla.
+*/
+
+@media (min-width:768px) {
+    .card {
+        width: 48%; 
+    }
+}
+
+@media (min-width:1280px) {
+    .container {
+        max-width:1140px
+    }
+
+    .card {
+        width: 32%; 
+    }
+}
+
+@media (min-width:1600px) {
+    .container {
+        max-width:1540px
+    }
+
+    .card {
+        width: 23%; 
+    }
+}
