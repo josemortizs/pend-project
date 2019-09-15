@@ -46,7 +46,7 @@
              id int(9) NOT NULL AUTO_INCREMENT,
              proyecto varchar(55) NOT NULL,
              titulo varchar(55) NOT NULL,
-             descripcion varchar(255),
+             descripcion text,
              prioridad varchar(55),
              periodicidad varchar(55),
              UNIQUE KEY id(id)
