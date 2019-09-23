@@ -70,11 +70,11 @@
         global $wpdb;
         $notas = $wpdb->prefix . 'pepr_notas';
 
-        $titulo = $_POST['titulo'];
-        $proyecto = $_POST['proyecto'];
-        $descripcion = $_POST['descripcion'];
-        $prioridad = $_POST['prioridad'];
-        $periodicidad = $_POST['periodicidad'];
+        $titulo = sanitize_text_field($_POST['titulo']);
+        $proyecto = sanitize_text_field($_POST['proyecto']);
+        $descripcion = sanitize_text_field($_POST['descripcion']);
+        $prioridad = sanitize_text_field($_POST['prioridad']);
+        $periodicidad = sanitize_text_field($_POST['periodicidad']);
 
         $wpdb->query($wpdb->prepare("INSERT INTO $notas VALUES (NULL, '%s', '%s', '%s', '%s', '%s')", $proyecto, $titulo, $descripcion, $prioridad, $periodicidad));
 
