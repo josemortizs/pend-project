@@ -52,15 +52,15 @@
             }
         ?>
         
-        <div class="card mr-2" title="Doble click para editar tarjeta..." id="<?php echo $nota->id ?>" ondblclick="editarTarjeta(<?php echo $nota->id ?>);" ondrag="estoyMoviendo(<?php echo $nota->id ?>);">
-            <div class="card-header text-center bg-dark text-light"><?php echo $nota->titulo ?></div>
+        <div class="card mr-2" title="Doble click para editar tarjeta..." id="<?php echo esc_attr($nota->id) ?>" ondblclick="editarTarjeta(<?php echo esc_attr($nota->id) ?>);" ondrag="estoyMoviendo(<?php echo esc_attr($nota->id) ?>);">
+            <div class="card-header text-center bg-dark text-light"><?php echo esc_html($nota->titulo) ?></div>
             <div class="card-body">
-                <h6 class="card-title text-center"><?php echo $nota->proyecto ?></h6>
-                <p class="card-text text-justify pre-scrollable"><?php echo $nota->descripcion ?></p>
+                <h6 class="card-title text-center"><?php echo esc_html($nota->proyecto) ?></h6>
+                <p class="card-text text-justify pre-scrollable"><?php echo esc_html($nota->descripcion) ?></p>
                 <div class="pepr_opciones">
-                    <div class="btn <?php echo $color_prioridad; ?>" title="Prioridad"><?php echo $nota->prioridad ?></div>
-                    <div class="btn btn-primary" title="Periodicidad"><?php echo $nota->periodicidad ?></div>
-                    <div class="btn btn-dark cursor-pointer pepr-eliminar" onclick="eliminarTarjeta(<?php echo $nota->id ?>);">Eliminar</div>
+                    <div class="btn <?php echo $color_prioridad; ?>" title="Prioridad"><?php echo esc_html($nota->prioridad) ?></div>
+                    <div class="btn btn-primary" title="Periodicidad"><?php echo esc_html($nota->periodicidad) ?></div>
+                    <div class="btn btn-dark cursor-pointer pepr-eliminar" onclick="eliminarTarjeta(<?php echo esc_attr($nota->id) ?>);">Eliminar</div>
                 </div>
             </div>
         </div>
@@ -70,7 +70,7 @@
 
         <!-- Agregar nueva tarjeta - Funcionalidad: Mostrar modal -->
 
-        <img id="png_agregar" class="mr-5" src="<?php echo plugins_url('/pendproject/img/agregar.png'); ?>" title="Pulsa para agregar nueva tarjeta..." data-toggle="modal" data-target="#pepr_add_tarjeta" >
+        <img id="png_agregar" class="mr-5" src="<?php echo esc_url(plugins_url('/pendproject/img/agregar.png')); ?>" title="Pulsa para agregar nueva tarjeta..." data-toggle="modal" data-target="#pepr_add_tarjeta" >
 
         <!-- Modal -->
         <div class="modal fade" id="pepr_add_tarjeta" tabindex="-1" role="dialog" aria-labelledby="pepr_add_tarjetaTitle" aria-hidden="true">
@@ -123,7 +123,7 @@
             </div>
         </div>
 
-        <img id="png_papelera" src="<?php echo plugins_url('/pendproject/img/papelera.png'); ?>" title="Arrastra aquí cualquier tarjeta que quieras borrar...">
+        <img id="png_papelera" src="<?php echo esc_url(plugins_url('/pendproject/img/papelera.png')); ?>" title="Arrastra aquí cualquier tarjeta que quieras borrar...">
 
     </div> <!-- .papelera -->
 

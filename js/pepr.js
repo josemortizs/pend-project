@@ -9,6 +9,7 @@ var idTarjetaSeleccionada = 0;
 var tarjetaSeleccionada;
 var editarActivo = false;
 var ordenTabla = 'titulo';
+var mensajeMostrado = false;
 reseteaFormulario();
 compruebaNavegador();
 
@@ -220,8 +221,11 @@ function compruebaNavegador() {
     if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
 
         jQuery('#png_papelera').hide();
-
-        alert('Pulsa dos veces sobre el título de cualquier tarjeta para modificar su contenido, ¡Gracias por usar Pend Project!');
+        
+        if(!mensajeMostrado) {
+            alert('Pulsa dos veces sobre el título de cualquier tarjeta para modificar su contenido, ¡Gracias por usar Pend Project!');
+            mensajeMostrado = true;
+        }
     
     }
     else {
