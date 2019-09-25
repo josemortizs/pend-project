@@ -67,14 +67,17 @@
 
     function pepr_insertar_datos_bd() {
 
+        // Comprueba si estamos recibiendo todos los datos, en caso contrario detiene la ejecución de la función.
+        if (!isset($_POST['titulo']) || !isset($_POST['proyecto']) || !isset($_POST['descripcion']) || !isset($_POST['prioridad']) || !isset($_POST['periodicidad'])) wp_die();
+
         global $wpdb;
         $notas = $wpdb->prefix . 'pepr_notas';
 
-        $titulo = sanitize_text_field($_POST['titulo']);
-        $proyecto = sanitize_text_field($_POST['proyecto']);
-        $descripcion = sanitize_text_field($_POST['descripcion']);
-        $prioridad = sanitize_text_field($_POST['prioridad']);
-        $periodicidad = sanitize_text_field($_POST['periodicidad']);
+        $titulo = (empty($_POST['titulo'])) ? 'Doble click para modificar título' : sanitize_text_field($_POST['titulo']);
+        $proyecto = (empty($_POST['proyecto'])) ? 'Doble click para modificar proyecto' : sanitize_text_field($_POST['proyecto']);
+        $descripcion = (empty($_POST['descripcion'])) ? 'Doble click para modificar la descripción' : sanitize_textarea_field($_POST['descripcion']);
+        $prioridad = (empty($_POST['prioridad'])) ? 'Baja' : sanitize_text_field($_POST['prioridad']);
+        $periodicidad = (empty($_POST['periodicidad'])) ? 'Puntual' : sanitize_text_field($_POST['periodicidad']);
 
         $wpdb->query($wpdb->prepare("INSERT INTO $notas VALUES (NULL, '%s', '%s', '%s', '%s', '%s')", $proyecto, $titulo, $descripcion, $prioridad, $periodicidad));
 
@@ -90,15 +93,18 @@
 
     function pepr_modificar_datos_bd() {
 
+        // Comprueba si estamos recibiendo todos los datos, en caso contrario detiene la ejecución de la función.
+        if (!isset($_POST['id']) || !isset($_POST['titulo']) || !isset($_POST['proyecto']) || !isset($_POST['descripcion']) || !isset($_POST['prioridad']) || !isset($_POST['periodicidad'])) wp_die();
+
         global $wpdb;
         $notas = $wpdb->prefix . 'pepr_notas';
 
-        $id = sanitize_text_field($_POST['id']);
-        $titulo = sanitize_text_field($_POST['titulo']);
-        $proyecto = sanitize_text_field($_POST['proyecto']);
-        $descripcion = sanitize_text_field($_POST['descripcion']);
-        $prioridad = sanitize_text_field($_POST['prioridad']);
-        $periodicidad = sanitize_text_field($_POST['periodicidad']);
+        $id = (empty($_POST['id'])) ? wp_die() : sanitize_text_field($_POST['id']);
+        $titulo = (empty($_POST['titulo'])) ? 'Doble click para modificar título' : sanitize_text_field($_POST['titulo']);
+        $proyecto = (empty($_POST['proyecto'])) ? 'Doble click para modificar proyecto' : sanitize_text_field($_POST['proyecto']);
+        $descripcion = (empty($_POST['descripcion'])) ? 'Doble click para modificar la descripción' : sanitize_textarea_field($_POST['descripcion']);
+        $prioridad = (empty($_POST['prioridad'])) ? 'Baja' : sanitize_text_field($_POST['prioridad']);
+        $periodicidad = (empty($_POST['periodicidad'])) ? 'Puntual' : sanitize_text_field($_POST['periodicidad']);
 
         $wpdb->query($wpdb->prepare("UPDATE $notas SET proyecto = '%s', titulo = '%s', descripcion = '%s', prioridad = '%s', periodicidad = '%s' WHERE id = '%d'", $proyecto, $titulo, $descripcion, $prioridad, $periodicidad, $id));
 
