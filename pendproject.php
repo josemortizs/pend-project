@@ -120,10 +120,13 @@
 
     function pepr_borrar_datos_bd() {
 
+        // Comprueba si estamos recibiendo todos los datos, en caso contrario detiene la ejecución de la función.
+        if (!isset($_POST['id'])) wp_die();
+
         global $wpdb;
         $notas = $wpdb->prefix . 'pepr_notas';
 
-        $id = sanitize_text_field($_POST['id']);
+        $id = (empty($_POST['id'])) ? wp_die() : sanitize_text_field($_POST['id']);
 
         $wpdb->query($wpdb->prepare("DELETE FROM $notas WHERE id = '%d'", $id));
 
@@ -139,10 +142,13 @@
 
     function pepr_get_registro_bd() {
 
+        // Comprueba si estamos recibiendo todos los datos, en caso contrario detiene la ejecución de la función.
+        if (!isset($_POST['id'])) wp_die();
+
         global $wpdb;
         $notas = $wpdb->prefix . 'pepr_notas';
 
-        $id = sanitize_text_field($_POST['id']);
+        $id = (empty($_POST['id'])) ? wp_die() : sanitize_text_field($_POST['id']);
 
         $tarjeta = $wpdb->get_row($wpdb->prepare("SELECT * FROM $notas WHERE id = '%d'", $id));
 
@@ -170,7 +176,10 @@
 
     function pepr_gets_tarjetas_bd() {
 
-        $orden = sanitize_text_field($_POST['orden']);
+        // Comprueba si estamos recibiendo todos los datos, en caso contrario detiene la ejecución de la función.
+        if (!isset($_POST['orden'])) wp_die();
+
+        $orden = (empty($_POST['orden'])) ? 'titulo' : sanitize_text_field($_POST['orden']);
 
         global $wpdb;
 
