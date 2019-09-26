@@ -29,6 +29,7 @@ function agregaEditaTarjeta() {
             url: ajaxurl,
             data: {
                 'action': 'peprADD',
+                'nonce': pepr_var.nonce,
                 'titulo': jQuery('#pepr_titulo').val(), 
                 'proyecto': jQuery('#pepr_proyecto').val(),
                 'descripcion': jQuery('#pepr_descripcion').val(),

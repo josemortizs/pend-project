@@ -62,6 +62,9 @@
             '1.0',
             true
         );
+
+        wp_localize_script('pepr_js', 'pepr_var', ['nonce' => wp_create_nonce('pepr-security')]);
+
     }
 
     add_action( 'admin_enqueue_scripts', 'pepr_load_custom_wp_admin_style' );

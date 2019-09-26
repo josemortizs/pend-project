@@ -67,6 +67,11 @@
 
     function pepr_insertar_datos_bd() {
 
+        if ( ! wp_verify_nonce($_REQUEST['nonce'], 'pepr-security') ) {
+			echo "¡NO PUEDES PASAAAAAAAAAR!";
+			wp_die();
+		}
+
         // Comprueba si estamos recibiendo todos los datos, en caso contrario detiene la ejecución de la función.
         if (!isset($_POST['titulo']) || !isset($_POST['proyecto']) || !isset($_POST['descripcion']) || !isset($_POST['prioridad']) || !isset($_POST['periodicidad'])) wp_die();
 
