@@ -67,6 +67,7 @@
 
     function pepr_insertar_datos_bd() {
 
+        // Verificamos el 'nonce' pasado por formulario, en caso de no ser correcto detiene la ejecución.
         if ( ! wp_verify_nonce($_REQUEST['nonce'], 'pepr-security') ) {
 			echo "¡NO PUEDES PASAAAAAAAAAR!";
 			wp_die();
@@ -97,7 +98,12 @@
     */
 
     function pepr_modificar_datos_bd() {
-
+        
+        // Verificamos el 'nonce' pasado por formulario, en caso de no ser correcto detiene la ejecución.
+        if ( ! wp_verify_nonce($_REQUEST['nonce'], 'pepr-security') ) {
+			echo "¡NO PUEDES PASAAAAAAAAAR!";
+			wp_die();
+		}
         // Comprueba si estamos recibiendo todos los datos, en caso contrario detiene la ejecución de la función.
         if (!isset($_POST['id']) || !isset($_POST['titulo']) || !isset($_POST['proyecto']) || !isset($_POST['descripcion']) || !isset($_POST['prioridad']) || !isset($_POST['periodicidad'])) wp_die();
 
