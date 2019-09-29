@@ -40,7 +40,6 @@ function agregaEditaTarjeta() {
                 console.log(response);
             },
             success: function (response) {
-                console.log(response);
                 jQuery("#pepr_add_tarjeta").modal('hide');
                 actualizaInterfaz();
                 reseteaFormulario();
@@ -53,6 +52,7 @@ function agregaEditaTarjeta() {
             url: ajaxurl,
             data: {
                 'action': 'peprEDIT',
+                'nonce': pepr_var.nonce,
                 'id' : idTarjetaSeleccionada,
                 'titulo': jQuery('#pepr_titulo').val(), 
                 'proyecto': jQuery('#pepr_proyecto').val(),
@@ -65,7 +65,6 @@ function agregaEditaTarjeta() {
                 editarActivo = false;
             },
             success: function (response) {
-                console.log(response);
                 jQuery("#pepr_add_tarjeta").modal('hide');
                 reseteaFormulario();
                 actualizaInterfaz();
@@ -95,6 +94,7 @@ function eliminarTarjeta(id) {
             url: ajaxurl,
             data: {
                 'action': 'peprDELL',
+                'nonce': pepr_var.nonce,
                 'id': idTarjetaSeleccionada
             },
             error: function (response) {
@@ -126,6 +126,7 @@ function editarTarjeta(id) {
         url: ajaxurl,
         data: {
             'action': 'peprGET',
+            'nonce': pepr_var.nonce,
             'id': id
         },
         error: function (response) {
@@ -198,6 +199,7 @@ function actualizaInterfaz() {
         url: ajaxurl,
         data: {
             'action': 'peprALL',
+            'nonce': pepr_var.nonce,
             'orden': ordenTabla
         },
         error: function (response) {
@@ -232,9 +234,7 @@ function compruebaNavegador() {
     else {
     
         const botones_dell = document.querySelectorAll('.pepr-eliminar');
-    
-        console.log(botones_dell);
-    
+        
         if(botones_dell) {
             botones_dell.forEach(boton => {
                 jQuery( function () {
