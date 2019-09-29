@@ -357,6 +357,7 @@
                                 url: ajaxurl,
                                 data: {
                                     'action': 'peprDELL',
+                                    'nonce': pepr_var.nonce,
                                     'id': idTarjetaSeleccionada
                                 },
                                 error: function (response) {
