@@ -270,7 +270,7 @@
 
             <!-- Agregar nueva tarjeta - Funcionalidad: Mostrar modal -->
 
-            <img id="png_agregar" class="mr-5" src="<?php echo esc_url(plugins_url('/pendproject/img/agregar.png')); ?>" title="Pulsa para agregar nueva tarjeta..." data-toggle="modal" data-target="#pepr_add_tarjeta" >
+            <img id="png_agregar" class="mr-5" src="<?php echo esc_url(plugins_url('/pend-project/img/agregar.png')); ?>" title="Pulsa para agregar nueva tarjeta..." data-toggle="modal" data-target="#pepr_add_tarjeta" >
 
             <!-- Modal -->
             <div class="modal fade" id="pepr_add_tarjeta" tabindex="-1" role="dialog" aria-labelledby="pepr_add_tarjetaTitle" aria-hidden="true">
@@ -323,7 +323,7 @@
                 </div>
             </div> <!-- /<div class="modal fade"> -->
 
-            <img id="png_papelera" src="<?php echo esc_url(plugins_url('/pendproject/img/papelera.png')); ?>" title="Arrastra aquí cualquier tarjeta que quieras borrar...">
+            <img id="png_papelera" src="<?php echo esc_url(plugins_url('/pend-project/img/papelera.png')); ?>" title="Arrastra aquí cualquier tarjeta que quieras borrar...">
 
             </div> <!-- .papelera -->
 

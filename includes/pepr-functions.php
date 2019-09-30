@@ -28,7 +28,7 @@
         ** de POST o páginas, Menús, etc.
         */
         
-        if($hook != 'pendproject/includes/pepr-administrator.php') {
+        if($hook != 'pend-project/includes/pepr-administrator.php') {
                 return;
         }
 
