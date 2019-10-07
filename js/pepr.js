@@ -157,6 +157,18 @@ function editarTarjeta(id) {
 function estoyMoviendo(id) {
     idTarjetaSeleccionada = id;
     tarjetaSeleccionada = document.getElementById(id);
+    actualizaUbicacionTarjeta(idTarjetaSeleccionada);
+}
+
+
+/*
+** Esta función recibe como parámetro el id de la tarjeta que
+** está siendo movida y actualiza, o almacena, la posición de 
+** la tarjeta en el Local Storage.
+*/
+
+function actualizaUbicacionTarjeta(id) {
+    console.log(id);
 }
 
 
