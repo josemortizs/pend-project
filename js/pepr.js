@@ -168,7 +168,11 @@ function estoyMoviendo(id) {
 */
 
 function actualizaUbicacionTarjeta(id) {
-    console.log(id);
+    //console.log(id);
+    //var coordenadas = jQuery('#'+id).offset();
+    //console.log("Y: " + coordenadas.top + ' X: ' + coordenadas.left);
+
+    jQuery('#5').offset({top: 436, left: 1490});
 }
 
 
