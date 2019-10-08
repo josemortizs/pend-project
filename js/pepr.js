@@ -182,6 +182,7 @@ function reseteaFormulario() {
 */
 
 function ordenar(orden) {
+    localStorage.clear();
     ordenTabla = orden;
     actualizaInterfaz();
 }
@@ -335,9 +336,6 @@ class Posiciones {
 }
 
 
-// Creo el Array donde agregar los objetos de tipo posición.
-var posiciones = new Array();
-
 /*
 ** Esta función recibe como parámetro el id de la tarjeta que
 ** está siendo movida y actualiza, o almacena, la posición de 
@@ -345,8 +343,6 @@ var posiciones = new Array();
 */
 
 function actualizaUbicacionTarjeta(id) {
-
-    //jQuery('#5').offset({top: 436, left: 1490});
 
     var coordenadas = jQuery('#'+id).offset();
     var ancho = window.innerWidth;
@@ -365,9 +361,13 @@ function cargaUbicacionesTarjetas() {
         let tarjeta = document.getElementById(id);
 
         if(tarjeta) {
+            let ancho = window.innerWidth;
+            let alto = window.innerHeight;
             let posicion = JSON.parse(localStorage.getItem(id));
-            jQuery('#'+id).offset({top: posicion.top, left: posicion.left});
+            if(posicion.ancho == ancho && posicion.alto == alto) jQuery('#'+id).offset({top: posicion.top, left: posicion.left});
         }
                 
     }
 }
+
+cargaUbicacionesTarjetas();

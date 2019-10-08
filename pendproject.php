@@ -389,6 +389,7 @@
                 });
 
                 compruebaNavegador();
+                cargaUbicacionesTarjetas();
             </script>
         <?php
 
