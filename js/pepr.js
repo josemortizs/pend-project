@@ -162,21 +162,6 @@ function estoyMoviendo(id) {
 
 
 /*
-** Esta función recibe como parámetro el id de la tarjeta que
-** está siendo movida y actualiza, o almacena, la posición de 
-** la tarjeta en el Local Storage.
-*/
-
-function actualizaUbicacionTarjeta(id) {
-    //console.log(id);
-    //var coordenadas = jQuery('#'+id).offset();
-    //console.log("Y: " + coordenadas.top + ' X: ' + coordenadas.left);
-
-    jQuery('#5').offset({top: 436, left: 1490});
-}
-
-
-/*
 ** Esta función resetea los valores del formulario MODAL
 ** evitando que muestre algunos valores anteriormente contenidos
 ** en sus campos de texto.
@@ -326,4 +311,52 @@ if(agregar_tarjeta) {
         jQuery("#pepr_add_tarjeta").modal('hide');
         agregaEditaTarjeta();
     });
+}
+
+
+/* ***************************************************************************************************** */
+/* Versión 1.1 - Agregamos opciones para mantener el posicionamiento de las tarjetas usando LocalStorage */
+/* ***************************************************************************************************** */
+
+
+/*
+** Clase: Posiciones
+** Creada para almacenar las posiciones de las tarjetas en una determinada resolución.
+*/
+
+class Posiciones {
+    constructor(id, ancho, alto, top, left) {
+        this.id = id;
+        this.ancho = ancho;
+        this.alto = alto;
+        this.top = top;
+        this.left = left;
+    }
+}
+
+
+// Creo el Array donde agregar los objetos de tipo posición.
+var posiciones = new Array();
+
+/*
+** Esta función recibe como parámetro el id de la tarjeta que
+** está siendo movida y actualiza, o almacena, la posición de 
+** la tarjeta en el Local Storage.
+*/
+
+function actualizaUbicacionTarjeta(id) {
+
+    //jQuery('#5').offset({top: 436, left: 1490});
+
+    var coordenadas = jQuery('#'+id).offset();
+    var ancho = window.innerWidth;
+    var alto = window.innerHeight;
+
+    var posicion = new Posiciones(id, ancho, alto, coordenadas.top, coordenadas.left);
+
+    localStorage.setItem(id, JSON.stringify(posicion));
+}
+
+function cargaUbicacionesTarjetas() {
+    //pendiente
 }
