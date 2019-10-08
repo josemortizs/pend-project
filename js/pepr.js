@@ -358,5 +358,16 @@ function actualizaUbicacionTarjeta(id) {
 }
 
 function cargaUbicacionesTarjetas() {
-    //pendiente
+    for (let i = 0; i < localStorage.length; i++) {
+        
+        let id = localStorage.key(i);
+
+        let tarjeta = document.getElementById(id);
+
+        if(tarjeta) {
+            let posicion = JSON.parse(localStorage.getItem(id));
+            jQuery('#'+id).offset({top: posicion.top, left: posicion.left});
+        }
+                
+    }
 }
