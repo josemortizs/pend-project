@@ -34,6 +34,7 @@
 
         wp_enqueue_style( 'pepr_admin_css_bootstrap', plugins_url('../css/bootstrap.min.css', __FILE__) );
         wp_enqueue_style( 'pepr_admin_css', plugins_url('../css/styles.css', __FILE__) );
+        wp_enqueue_style( 'pepr_animated_css', plugins_url('../css/animate.css', __FILE__) );
 
         wp_enqueue_script('jquery-ui-droppable');
         wp_enqueue_script('jquery-ui-draggable');

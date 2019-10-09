@@ -364,7 +364,11 @@ function cargaUbicacionesTarjetas() {
             let ancho = window.innerWidth;
             let alto = window.innerHeight;
             let posicion = JSON.parse(localStorage.getItem(id));
-            if(posicion.ancho == ancho && posicion.alto == alto) jQuery('#'+id).offset({top: posicion.top, left: posicion.left});
+            if(posicion.ancho == ancho && posicion.alto == alto) 
+            {
+                jQuery('#'+id).offset({top: posicion.top, left: posicion.left});
+                document.getElementById(id).className += ' bounceInLeft animated';
+            }
         }
                 
     }
