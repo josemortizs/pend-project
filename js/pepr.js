@@ -354,6 +354,9 @@ function actualizaUbicacionTarjeta(id) {
 }
 
 function cargaUbicacionesTarjetas() {
+
+    var efectos = new Array('bounceInDown', 'bounceInLeft', 'bounceInRight', 'bounceInUp');
+
     for (let i = 0; i < localStorage.length; i++) {
         
         let id = localStorage.key(i);
@@ -367,7 +370,8 @@ function cargaUbicacionesTarjetas() {
             if(posicion.ancho == ancho && posicion.alto == alto) 
             {
                 jQuery('#'+id).offset({top: posicion.top, left: posicion.left});
-                document.getElementById(id).className += ' bounceInLeft animated';
+                document.getElementById(id).className += ' ' + efectos [parseInt(Math.random() * (4 - 0) + 0)];
+                document.getElementById(id).className += ' animated';
             }
         }
                 
